@@ -7,5 +7,5 @@ spec:
   ports:
     - protocol: {{ .Values.service.protocol }}
       port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort }}
+      targetPort: {{ .Values.service.targetPort | .Values.service.port }}
   type: {{ .Values.service.type }}
