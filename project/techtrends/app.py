@@ -92,6 +92,12 @@ def create():
 # Define the healthz endpoint
 @app.route('/healthz')
 def healthz():
+    try:
+        get_posts()
+    except:
+        return 'ERROR - unhealthy', 500
+        raise
+
     return 'result: OK - healthy'
 
 # Define the /metrics endpoint
