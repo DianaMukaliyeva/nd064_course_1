@@ -21,6 +21,7 @@ jobs:
         with:
           images: ${{ secrets.DOCKERHUB_USERNAME }}/techtrends
           tags: |
+            type=ref,event=branch
             type=semver,pattern={{version}},value=${{ env.GIT_TAG }}
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
